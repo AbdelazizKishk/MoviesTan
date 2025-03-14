@@ -1,0 +1,31 @@
+<section class="movies">
+  <div class="container">
+    <div class="row g-4">
+      @for (movie of allMovies(); track movie.id) {
+      <div class="col-md-3">
+        <div class="card shadow-lg">
+          <img
+            [src]="pathImg + movie.poster_path"
+            class="card-img-top"
+            [alt]="movie.name"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">
+              {{ movie.name }} {{ movie.title }}
+            </h5>
+            <p class="card-text" title="descraption">
+              {{ movie.overview.split(" ", 10).join(" ") }}
+            </p>
+            <p class="text-white mb-2">
+              <strong>Rating :</strong> ⭐ {{ movie.vote_average }} ({{
+                movie.vote_count
+              }}
+              votes)
+            </p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
